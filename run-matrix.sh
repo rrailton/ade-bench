@@ -26,6 +26,7 @@ N_CONCURRENT="${N_CONCURRENT:-2}"
 BATCH_SIZE="${BATCH_SIZE:-10}"                    # tasks per batch
 MAX_OUTPUT_TOKENS="${MAX_OUTPUT_TOKENS:-2000000}" # cumulative ceiling across the arm
 TASK_FILE="${TASK_FILE:-matrix-tasks.txt}"        # one task id per line
+NO_DIFFS="${NO_DIFFS:-1}"                         # 1 = skip file-diff snapshots (faster); agent transcripts unaffected
 # ---------------------------------------------------------------------------
 
 # Harness settings via env (no .env file; see Config.get_setting).
@@ -78,6 +79,7 @@ for ((i=0; i<${#TASKS[@]}; i+=BATCH_SIZE)); do
     --n-concurrent-trials "$N_CONCURRENT" \
     --run-id "${RUN_ID}-b${batch_no}" \
     --no-rebuild \
+    $( [[ "$NO_DIFFS" == "1" ]] && echo --no-diffs ) \
     "$@" || echo "$(date -Iseconds) WARN batch $batch_no exited nonzero (individual failures are normal)" | tee -a "$LOG"
 done
 
