@@ -7,7 +7,9 @@ npm --version
 
 echo "installing Claude Code"
 
-npm install -g @anthropic-ai/claude-code
+# Pinned so benchmark runs on different days compare the same harness binary.
+# Bump deliberately (and note it in run records), not implicitly.
+npm install -g @anthropic-ai/claude-code@2.1.207
 
 claude --version
 
