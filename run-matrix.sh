@@ -44,8 +44,11 @@ fi
 # The agent requires the ANTHROPIC_API_KEY env var to exist even when unused.
 export ANTHROPIC_API_KEY="${ANTHROPIC_API_KEY:-}"
 
-[[ -f "$TASK_FILE" ]] || { echo "ERROR: $TASK_FILE not found." >&2; exit 1; }
-mapfile -t TASKS < <(grep -v '^\s*#' "$TASK_FILE" | grep -v '^\s*$')
+[[ -r "$TASK_FILE" ]] || { echo "ERROR: $TASK_FILE not found." >&2; exit 1; }
+TASKS=()
+while IFS= read -r line; do
+  [[ "$line" =~ ^[[:space:]]*(#|$) ]] || TASKS+=("$line")
+done < "$TASK_FILE"
 
 RUN_ID="${ARM}__$(date +%Y-%m-%d__%H-%M-%S)"
 RESULTS_DIR="experiments"
