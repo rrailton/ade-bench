@@ -56,9 +56,9 @@ LOG="matrix-runs.log"
 echo "$(date -Iseconds) START arm=$ARM model=$MODEL effort=$EFFORT run_id=$RUN_ID tasks=${#TASKS[@]} attempts=$N_ATTEMPTS ceiling=$MAX_OUTPUT_TOKENS" | tee -a "$LOG"
 
 spent_tokens() {
-  # Sum output_tokens (col 13) across all TSVs for this run id.
+  # Sum output_tokens (col 12) across all TSVs for this run id.
   find "$RESULTS_DIR" -name "results.tsv" -path "*${RUN_ID}*" 2>/dev/null \
-    | xargs -r awk -F'\t' 'NR>1 {s+=$13} END {print s+0}'
+    | xargs -r awk -F'\t' 'NR>1 {s+=$12} END {print s+0}'
 }
 
 batch_no=0
