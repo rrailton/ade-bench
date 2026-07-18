@@ -1,0 +1,84 @@
+2026-07-16T23:01:24-07:00 START arm=opus48-xhigh model=claude-opus-4-8 effort=xhigh run_id=opus48-xhigh__2026-07-16__23-01-24 tasks=16 attempts=1 ceiling=2000000
+2026-07-16T23:01:24-07:00 BATCH 1 (f1001 f1002 f1003 airbnb001 airbnb002 airbnb003 asana001 asana002 intercom001 intercom002) spent=
+Starting run for plugin set: none
+23:01:25 | system                           | START        | STARTING HARNESS RUN
+23:01:25 | system                           | START        | Run ID: opus48-xhigh__2026-07-16__23-01-24-b1__none
+23:01:25 | system                           | START        | Running with duckdb + dbt. Found 11 tasks of 11 requested tasks.
+┏━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ T… ┃ Task                       ┃ Stage  ┃ Message                                                                                         ┃
+┡━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ 2… │ airbnb001                  │ ✓ ✓ ✓… │ PASS - dbt test results - Pass:11, Fail: 0, Total:11                                            │
+│ 2… │ airbnb002                  │ ✓ ✓ ✓… │ PASS - dbt test results - Pass:12, Fail: 0, Total:12                                            │
+│ 2… │ airbnb003                  │ ✓ ✓ ✓… │ PASS - dbt test results - Pass: 8, Fail: 0, Total: 8                                            │
+│ 2… │ asana001                   │ ✓ ✓ ✓… │ PASS - dbt test results - Pass: 3, Fail: 0, Total: 3                                            │
+│ 2… │ asana002                   │ ✓ ✓ ✓… │ FAIL - dbt test results - Pass: 3, Fail: 1, Total: 4                                            │
+│ 2… │ f1001                      │ ✓ ✓ ✓… │ PASS - dbt test results - Pass: 7, Fail: 0, Total: 7                                            │
+│ 2… │ f1002                      │ ✓ ✓ ✓… │ FAIL - dbt test results - Pass:10, Fail: 1, Total:11                                            │
+│ 2… │ f1003                      │ ✓ ✓ ✓… │ PASS - dbt test results - Pass: 5, Fail: 0, Total: 5                                            │
+│ 2… │ f1003.hard                 │ ✓ ✓ ✓… │ PASS - dbt test results - Pass: 5, Fail: 0, Total: 5                                            │
+│ 2… │ intercom001                │ ✓ ✓ ✓… │ FAIL - dbt test results - Pass: 2, Fail: 1, Total: 3                                            │
+│ 2… │ intercom002                │ ✓ ✓ ✓… │ FAIL - dbt test results - Pass: 3, Fail: 2, Total: 5                                            │
+│ ─… │ ─────────────────────────… │ ─────… │ ──────────────────────────────────────────────────────────────────────────────────────────────… │
+│ 2… │ SUMMARY                    │        │ Run 11 of 11 tasks, 7 successful (63.6%)                                                        │
+└────┴────────────────────────────┴────────┴─────────────────────────────────────────────────────────────────────────────────────────────────┘23:28:39 | system                           | FINISH       | Harness run completed: 7 of 11 tasks successful
+
+======================================== RESULTS SUMMARY ========================================
+
++--------------+----------+----------------+---------+----------+------------+------------+--------+----------------+-----------------+----------------+---------+
+| Task         | Result   | Failure Type   |   Tests |   Passed | Passed %   |   Time (s) | Cost   |   Input Tokens |   Output Tokens |   Cache Tokens |   Turns |
+|--------------+----------+----------------+---------+----------+------------+------------+--------+----------------+-----------------+----------------+---------|
+| airbnb001    | p        |                |      11 |       11 |            |         73 | $0.33  |         12,690 |           4,811 |        168,909 |      16 |
+| airbnb002    | p        |                |      12 |       12 |            |         82 | $0.44  |         17,276 |           5,733 |        237,849 |      16 |
+| airbnb003    | p        |                |       8 |        8 |            |         40 | $0.22  |          9,021 |           2,434 |        135,905 |      11 |
+| asana001     | p        |                |       3 |        3 |            |        392 | $1.64  |         46,443 |          26,452 |      1,022,148 |      26 |
+| asana002     | FAIL     | eval_error     |       4 |        3 | 75%        |        546 | $2.32  |         67,615 |          35,829 |      1,492,309 |      36 |
+| f1001        | p        |                |       7 |        7 |            |        253 | $1.67  |         90,760 |          17,696 |        633,087 |      52 |
+| f1002        | FAIL     | eval_error     |      11 |       10 | 91%        |        140 | $0.78  |         24,383 |           8,354 |        660,027 |      31 |
+| f1003        | p        |                |       5 |        5 |            |        276 | $1.18  |         38,216 |          19,580 |        605,903 |      17 |
+| f1003.hard   | p        |                |       5 |        5 |            |        278 | $1.13  |         31,634 |          18,478 |        699,669 |      22 |
+| intercom001  | FAIL     | eval_error     |       3 |        2 | 67%        |        228 | $1.03  |         33,790 |          16,478 |        558,510 |      22 |
+| intercom002  | FAIL     | eval_error     |       5 |        3 | 60%        |        267 | $1.23  |         35,612 |          19,845 |        754,945 |      25 |
+|              |          |                |         |          |            |            |        |                |                 |                |         |
+| TOTAL (n=11) | 64%      |                |      74 |       69 | 93%        |       2574 | $11.95 |        407,440 |         175,690 |      6,969,261 |     274 |
++--------------+----------+----------------+---------+----------+------------+------------+--------+----------------+-----------------+----------------+---------+
+
+For more details, run the command below:
+ade view
+2026-07-16T23:28:40-07:00 BATCH 2 (analytics_engineering001 analytics_engineering002 quickbooks001 quickbooks002 helixops_saas001 helixops_saas002) spent=175690
+Starting run for plugin set: none
+23:28:41 | system                           | START        | STARTING HARNESS RUN
+23:28:41 | system                           | START        | Run ID: opus48-xhigh__2026-07-16__23-01-24-b2__none
+23:28:41 | system                           | START        | Running with duckdb + dbt. Found 7 tasks of 7 requested tasks.
+┏━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ T… ┃ Task                       ┃ Stage  ┃ Message                                                                                         ┃
+┡━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ 2… │ analytics_engineering001   │ ✓ ✓ ✓… │ PASS - dbt test results - Pass: 2, Fail: 0, Total: 2                                            │
+│ 2… │ analytics_engineering002   │ ✓ ✓ ✓… │ PASS - dbt test results - Pass: 3, Fail: 0, Total: 3                                            │
+│ 2… │ analytics_engineering002.… │ ✓ ✓ ✓… │ PASS - dbt test results - Pass: 3, Fail: 0, Total: 3                                            │
+│ 2… │ helixops_saas001           │ ✓ ✓ ✓… │ PASS - dbt test results - Pass: 3, Fail: 0, Total: 3                                            │
+│ 2… │ helixops_saas002           │ ✓ ✓ ✓… │ PASS - dbt test results - Pass: 3, Fail: 0, Total: 3                                            │
+│ 2… │ quickbooks001              │ ✓ ✓ ✓… │ PASS - dbt test results - Pass:13, Fail: 0, Total:13                                            │
+│ 2… │ quickbooks002              │ ✓ ✓ ✓… │ FAIL - dbt test results - Pass: 6, Fail: 3, Total: 9                                            │
+│ ─… │ ─────────────────────────… │ ─────… │ ──────────────────────────────────────────────────────────────────────────────────────────────… │
+│ 2… │ SUMMARY                    │        │ Run 7 of 7 tasks, 6 successful (85.7%)                                                          │
+└────┴────────────────────────────┴────────┴─────────────────────────────────────────────────────────────────────────────────────────────────┘23:36:09 | system                           | FINISH       | Harness run completed: 6 of 7 tasks successful
+
+======================================== RESULTS SUMMARY ========================================
+
++---------------------------------+----------+----------------+---------+----------+------------+------------+--------+----------------+-----------------+----------------+---------+
+| Task                            | Result   | Failure Type   |   Tests |   Passed | Passed %   |   Time (s) | Cost   |   Input Tokens |   Output Tokens |   Cache Tokens |   Turns |
+|---------------------------------+----------+----------------+---------+----------+------------+------------+--------+----------------+-----------------+----------------+---------|
+| analytics_engineering001        | p        |                |       2 |        2 |            |         15 | $0.09  |          5,301 |             748 |         39,641 |       2 |
+| analytics_engineering002        | p        |                |       3 |        3 |            |         21 | $0.13  |          4,785 |             656 |        127,738 |       6 |
+| analytics_engineering002.medium | p        |                |       3 |        3 |            |         30 | $0.22  |         10,324 |           1,385 |        167,912 |       7 |
+| helixops_saas001                | p        |                |       3 |        3 |            |         48 | $0.25  |          9,474 |           1,710 |        238,932 |      11 |
+| helixops_saas002                | p        |                |       3 |        3 |            |         61 | $0.31  |         11,792 |           3,056 |        224,221 |      13 |
+| quickbooks001                   | p        |                |      13 |       13 |            |        212 | $0.97  |         32,199 |          13,917 |        604,863 |      17 |
+| quickbooks002                   | FAIL     | eval_error     |       9 |        6 | 67%        |        152 | $0.77  |         23,318 |           8,956 |        633,066 |      31 |
+|                                 |          |                |         |          |            |            |        |                |                 |                |         |
+| TOTAL (n=7)                     | 86%      |                |      36 |       33 | 92%        |        539 | $2.75  |         97,193 |          30,428 |      2,036,373 |      87 |
++---------------------------------+----------+----------------+---------+----------+------------+------------+--------+----------------+-----------------+----------------+---------+
+
+For more details, run the command below:
+ade view
+2026-07-16T23:36:09-07:00 DONE arm=opus48-xhigh spent=206118 output tokens. Results: experiments/opus48-xhigh__2026-07-16__23-01-24
