@@ -20,6 +20,11 @@ MODEL="${2:?model required (e.g. claude-fable-5)}"
 EFFORT="${3:?effort required (low|medium|high|xhigh|max)}"
 shift 3
 
+case "$EFFORT" in
+  low|medium|high|xhigh|max) ;;
+  *) echo "ERROR: invalid effort '$EFFORT' (low|medium|high|xhigh|max)" >&2; exit 1 ;;
+esac
+
 # ---- knobs -----------------------------------------------------------------
 N_ATTEMPTS="${N_ATTEMPTS:-1}"
 N_CONCURRENT="${N_CONCURRENT:-2}"

@@ -88,3 +88,7 @@ dmypy.json
 
 # misc
 zz-*
+
+# benchmark runner artifacts
+*.out
+matrix-runs.log
